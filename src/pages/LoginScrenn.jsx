@@ -2,7 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import moduleName from "module";
 
-const LoginScrenn = (props) => {
+const LoginScrenn = ({ history }) => {
+  const handleLogout = () => {
+    history.push("/masculino");
+  };
   return (
     <>
       <div className="conatainer mt-5 text-center">
@@ -10,7 +13,11 @@ const LoginScrenn = (props) => {
           <img src="/assets/animate.gif" alt="" />
         </div>
         <h1 className="my-3">logueo</h1>
-        <button type="button" className="btn btn-outline-primary my-3">
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="btn btn-outline-primary my-3"
+        >
           Primary
         </button>
       </div>
