@@ -17,7 +17,7 @@ const AppRouter = (props) => {
         <Route exact path="/masculino" component={MasculinoScreen} />
         <Route exact path="/searchs" component={Search} />
         <Route exact path="/Detalles/:id" component={Detalles} />
-        <Redirect to="/" />
+        <Redirect to="/masculino" />
       </Switch>
       <Footer />
     </>

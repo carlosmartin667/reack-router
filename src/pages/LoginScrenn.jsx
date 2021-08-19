@@ -1,10 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import moduleName from "module";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { authTypes } from "../types/authTypes";
 
-const LoginScrenn = ({ history }) => {
-  const handleLogout = () => {
-    history.push("/masculino");
+const LoginScrenn = () => {
+  const { dispatch } = useContext(AuthContext);
+
+  const history = useHistory();
+
+  const handleLogin = () => {
+    dispatch({ type: authTypes.login });
+
+    history.push("/");
   };
   return (
     <>
@@ -15,7 +22,7 @@ const LoginScrenn = ({ history }) => {
         <h1 className="my-3">logueo</h1>
         <button
           type="button"
-          onClick={handleLogout}
+          onClick={handleLogin}
           className="btn btn-outline-primary my-3"
         >
           Primary
