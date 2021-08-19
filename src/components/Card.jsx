@@ -14,6 +14,7 @@ const Card = ({ name, type, id }) => {
         }}
       >
         <img
+ 
           loading="lazy"
           className="card-img-top"
           style={{ width: "100%" }}
