@@ -1,15 +1,13 @@
-import React, { useContext } from "react";
-import { NavLink, useHistory } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
-import { authTypes } from "../../types/authTypes";
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+import { DataNabar } from "../../helpers/DataNavbar";
+
 
 const Navbar = () => {
-  const history = useHistory();
-  const { dispatch } = useContext(AuthContext);
-  const handleLogout = () => {
-    dispatch({ type: authTypes.logout });
-    history.replace("/login");
-  };
+
+  const handleLogout = DataNabar();
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-info">
