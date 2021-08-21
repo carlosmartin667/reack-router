@@ -1,18 +1,10 @@
-import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import { authTypes } from "../types/authTypes";
+import React from "react";
+import { DataLogin } from "../helpers/DataLogin";
 
-const LoginScrenn = () => {
-  const { dispatch } = useContext(AuthContext);
+const LoginScrenn = ({ history }) => {
 
-  const history = useHistory();
+  const handleLogin = DataLogin(history);
 
-  const handleLogin = () => {
-    dispatch({ type: authTypes.login });
-
-    history.push("/");
-  };
   return (
     <>
       <div className="conatainer mt-5 text-center">
@@ -31,7 +23,5 @@ const LoginScrenn = () => {
     </>
   );
 };
-
-LoginScrenn.propTypes = {};
 
 export default LoginScrenn;

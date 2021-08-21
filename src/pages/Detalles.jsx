@@ -1,21 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { useParams } from "react-router";
-import { Personajes } from "../models/Personajes";
+import { DataDetalles } from "../helpers/DataDetalles";
 
-const Detalles = ({history}) => {
-  const { id } = useParams();
-  const { type, name, description } = Personajes.find((x) => x.id === id);
-  const path = `/assets/${type}-${id}.png`;
+const Detalles = ({ history }) => {
 
-  const volver = () => {
-    history.goBack();
-  }
+  const { id, type, name, description, path, volver } = DataDetalles(history);
+
   return (
     <>
       <div className="conatainer mx-5 mt-4">
         <div className="">
-          <div className="card mb-3 text-white bg-dark"  style={{ maxWidth: 540 }}>
+          <div className="card mb-3 text-white bg-dark" style={{ maxWidth: 540 }}>
             <div className="row g-0">
               <div className="col-md-4">
                 <img src={path} className="img-fluid rounded-start" alt={path} />
@@ -42,7 +36,5 @@ const Detalles = ({history}) => {
     </>
   );
 };
-
-Detalles.propTypes = {};
 
 export default Detalles;

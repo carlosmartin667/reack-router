@@ -1,21 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Personajes } from "../models/Personajes";
 import Card from "../components/Card";
+import { genero } from "../helpers/Genero";
 
-const MasculinoScreen = (props) => {
-  const hombre = Personajes.filter((x) => x.type === "h");
-  console.log(hombre);
+const MasculinoScreen = () => {
+
+  const hombre = genero("h")
+
   return (
     <>
       <div className="container mt-3">
-        <div class="alert alert-info" role="alert">
+        <div className="alert alert-info" role="alert">
           Masculino
         </div>
-    
-
-      <hr />
-   
+        <hr />
         <div className="row">
           {hombre.map((man) => (
             <Card key={man.id} {...man} />
@@ -26,6 +23,5 @@ const MasculinoScreen = (props) => {
   );
 };
 
-MasculinoScreen.propTypes = {};
 
 export default MasculinoScreen;
